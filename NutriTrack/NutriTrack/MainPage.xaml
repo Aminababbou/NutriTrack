@@ -32,7 +32,7 @@
                 HorizontalOptions="Center"/>
 
             <Button
-                Text="Commencer  →"
+                Text="Commencer "
                 FontSize="17"
                 FontAttributes="Bold"
                 TextColor="White"

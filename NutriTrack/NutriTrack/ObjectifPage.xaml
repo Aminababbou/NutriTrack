@@ -20,8 +20,8 @@
 
             <VerticalStackLayout Spacing="5">
                 <Label
-                    Text="Vos vos objectifs nutritionnels personnalisés"
-                    FontSize="27"
+                    Text="Vos  objectifs nutritionnels personnalisés"
+                    FontSize="15"
                     FontAttributes="Bold"
                     TextColor="#075C36"
                     HorizontalOptions="Center"/>
@@ -174,7 +174,7 @@
 
             <!-- Bouton -->
             <Button
-                Text="Commencer  →"
+                Text="Commencer  "
                 FontSize="17"
                 FontAttributes="Bold"
                 TextColor="White"

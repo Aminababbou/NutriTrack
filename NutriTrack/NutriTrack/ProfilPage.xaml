@@ -2,63 +2,96 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NutriTrack.ProfilPage"
-             Title="Mon profil et mon objectif">
+             Title=" Profil et Objectif"
+             BackgroundColor="#F1F7F3">
+
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="#1F2D24" />
+        </Style>
+        <Style TargetType="Entry">
+            <Setter Property="TextColor" Value="#1F2D24" />
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="PlaceholderColor" Value="#7A8A80" />
+        </Style>
+        <Style TargetType="Picker">
+            <Setter Property="TextColor" Value="#1F2D24" />
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="TitleColor" Value="#7A8A80" />
+        </Style>
+    </ContentPage.Resources>
+
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="6">
+        <VerticalStackLayout Padding="20">
 
-            <Label Text="Sexe" />
-            <Picker x:Name="SexePicker" Title="Choisir" SelectedIndexChanged="OnChoixChange">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Homme</x:String>
-                        <x:String>Femme</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
+            <Border BackgroundColor="White" Stroke="#BFDCC9" StrokeThickness="1.5" Padding="20">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="16" />
+                </Border.StrokeShape>
 
-            <Label Text="Âge (18 à 100 ans)" Margin="0,10,0,0" />
-            <Entry x:Name="AgeEntry" Keyboard="Numeric" MaxLength="3" Placeholder="ex. 25" TextChanged="OnTexteChange" />
-            <Label x:Name="AgeErreur" TextColor="Red" FontSize="12" IsVisible="False" />
+                <VerticalStackLayout Spacing="6">
 
-            <Label Text="Taille (120 à 230 cm)" Margin="0,10,0,0" />
-            <Entry x:Name="TailleEntry" Keyboard="Numeric" MaxLength="3" Placeholder="ex. 170" TextChanged="OnTexteChange" />
-            <Label x:Name="TailleErreur" TextColor="Red" FontSize="12" IsVisible="False" />
+                    <Label Text="Mon profil et mon objectif" FontSize="22" FontAttributes="Bold"
+                           TextColor="#3F7A58" HorizontalOptions="Center" Margin="0,0,0,10" />
 
-            <Label Text="Poids actuel (30 à 300 kg)" Margin="0,10,0,0" />
-            <Entry x:Name="PoidsEntry" Keyboard="Numeric" MaxLength="5" Placeholder="ex. 72,5" TextChanged="OnTexteChange" />
-            <Label x:Name="PoidsErreur" TextColor="Red" FontSize="12" IsVisible="False" />
+                    <Label Text="Sexe" />
+                    <Picker x:Name="SexePicker" Title="Choisir" SelectedIndexChanged="OnChoixChange">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Homme</x:String>
+                                <x:String>Femme</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
 
-            <Label Text="Niveau d'activité" Margin="0,10,0,0" />
-            <Picker x:Name="ActivitePicker" Title="Choisir" SelectedIndexChanged="OnChoixChange">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Sédentaire (peu ou pas d'exercice)</x:String>
-                        <x:String>Légèrement actif (1 à 3 séances par semaine)</x:String>
-                        <x:String>Actif (3 à 5 séances par semaine)</x:String>
-                        <x:String>Très actif (6 à 7 séances par semaine)</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
+                    <Label Text="Âge (18 à 100 ans)" Margin="0,10,0,0" />
+                    <Entry x:Name="AgeEntry" Keyboard="Numeric" MaxLength="3" Placeholder="ex. 25" TextChanged="OnTexteChange" />
+                    <Label x:Name="AgeErreur" TextColor="Red" FontSize="12" IsVisible="False" />
 
-            <Label Text="Objectif" Margin="0,10,0,0" />
-            <Picker x:Name="ObjectifPicker" Title="Choisir" SelectedIndexChanged="OnObjectifChange">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Garder mon poids</x:String>
-                        <x:String>Perdre du poids</x:String>
-                        <x:String>Prendre du poids</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
+                    <Label Text="Taille (120 à 230 cm)" Margin="0,10,0,0" />
+                    <Entry x:Name="TailleEntry" Keyboard="Numeric" MaxLength="3" Placeholder="ex. 170" TextChanged="OnTexteChange" />
+                    <Label x:Name="TailleErreur" TextColor="Red" FontSize="12" IsVisible="False" />
 
-            <!-- Visible seulement si l'objectif est Perdre ou Prendre -->
-            <VerticalStackLayout x:Name="PoidsViseLayout" IsVisible="False" Spacing="6">
-                <Label x:Name="PoidsViseLabel" Margin="0,10,0,0" />
-                <Entry x:Name="PoidsViseEntry" Keyboard="Numeric" MaxLength="5" Placeholder="ex. 68,0" TextChanged="OnTexteChange" />
-                <Label x:Name="PoidsViseErreur" TextColor="Red" FontSize="12" IsVisible="False" />
-            </VerticalStackLayout>
+                    <Label Text="Poids actuel (30 à 300 kg)" Margin="0,10,0,0" />
+                    <Entry x:Name="PoidsEntry" Keyboard="Numeric" MaxLength="5" Placeholder="ex. 72,5" TextChanged="OnTexteChange" />
+                    <Label x:Name="PoidsErreur" TextColor="Red" FontSize="12" IsVisible="False" />
 
-            <Button x:Name="ValiderButton" Text="Valider" Margin="0,20,0,0" IsEnabled="False" Clicked="OnValiderClicked" />
+                    <Label Text="Niveau d'activité" Margin="0,10,0,0" />
+                    <Picker x:Name="ActivitePicker" Title="Choisir" SelectedIndexChanged="OnChoixChange">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Sédentaire (peu ou pas d'exercice)</x:String>
+                                <x:String>Légèrement actif (1 à 3 séances par semaine)</x:String>
+                                <x:String>Actif (3 à 5 séances par semaine)</x:String>
+                                <x:String>Très actif (6 à 7 séances par semaine)</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                    <Label Text="Objectif" Margin="0,10,0,0" />
+                    <Picker x:Name="ObjectifPicker" Title="Choisir" SelectedIndexChanged="OnObjectifChange">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Garder mon poids</x:String>
+                                <x:String>Perdre du poids</x:String>
+                                <x:String>Prendre du poids</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                    <!-- Visible seulement si l'objectif est Perdre ou Prendre -->
+                    <VerticalStackLayout x:Name="PoidsViseLayout" IsVisible="False" Spacing="6">
+                        <Label x:Name="PoidsViseLabel" Margin="0,10,0,0" />
+                        <Entry x:Name="PoidsViseEntry" Keyboard="Numeric" MaxLength="5" Placeholder="ex. 68,0" TextChanged="OnTexteChange" />
+                        <Label x:Name="PoidsViseErreur" TextColor="Red" FontSize="12" IsVisible="False" />
+                    </VerticalStackLayout>
+
+                    <Button x:Name="ValiderButton" Text="Valider" Margin="0,20,0,0"
+                            BackgroundColor="#5E9C76" TextColor="White" CornerRadius="10"
+                            IsEnabled="False" Clicked="OnValiderClicked" />
+
+                </VerticalStackLayout>
+            </Border>
 
         </VerticalStackLayout>
     </ScrollView>
