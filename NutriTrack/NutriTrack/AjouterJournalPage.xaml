@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="NutriTrack.AjouterJournalPage"
+    Title="Ajouter au journal"
+    BackgroundColor="#F5F8F5">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="18">
+
+            <Label
+                Text="Ajouter au journal alimentaire"
+                FontSize="24"
+                FontAttributes="Bold"
+                TextColor="#244B35"/>
+
+            <!-- Informations aliment -->
+            <Frame
+                BackgroundColor="White"
+                CornerRadius="15"
+                Padding="15"
+                HasShadow="True">
+
+                <VerticalStackLayout Spacing="8">
+
+                    <Image
+                        Source="{Binding Image}"
+                        HeightRequest="130"
+                        Aspect="AspectFit"/>
+
+                    <Label
+                        x:Name="LblNom"
+                        FontSize="21"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center"
+                        TextColor="#244B35"/>
+
+                    <Label
+                        x:Name="LblCategorie"
+                        FontSize="14"
+                        HorizontalOptions="Center"
+                        TextColor="Gray"/>
+
+                    <Grid ColumnDefinitions="*,*"
+                          ColumnSpacing="10">
+
+                        <VerticalStackLayout Grid.Column="0"
+                                             HorizontalOptions="Center">
+                            <Label Text="Calories / 100 g"
+                                   FontSize="12"
+                                   TextColor="Gray"/>
+                            <Label x:Name="LblCalories100"
+                                   FontAttributes="Bold"
+                                   FontSize="17"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Column="1"
+                                             HorizontalOptions="Center">
+                            <Label Text="Protéines / 100 g"
+                                   FontSize="12"
+                                   TextColor="Gray"/>
+                            <Label x:Name="LblProteines100"
+                                   FontAttributes="Bold"
+                                   FontSize="17"/>
+                        </VerticalStackLayout>
+
+                    </Grid>
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Date -->
+            <VerticalStackLayout Spacing="7">
+                <Label Text="Date de consommation"
+                       FontAttributes="Bold"
+                       FontSize="16"/>
+
+                <DatePicker
+                    x:Name="DateConsommationPicker"
+                    Format="dd/MM/yyyy"/>
+            </VerticalStackLayout>
+
+            <!-- Quantité -->
+            <VerticalStackLayout Spacing="7">
+                <Label Text="Quantité consommée"
+                       FontAttributes="Bold"
+                       FontSize="16"/>
+
+                <Grid ColumnDefinitions="*,Auto"
+                      ColumnSpacing="10">
+
+                    <Entry
+                        x:Name="TxtQuantite"
+                        Placeholder="Exemple : 150"
+                        Keyboard="Numeric"
+                        MaxLength="5"
+                        BackgroundColor="White"
+                        TextChanged="OnQuantiteChanged"/>
+
+                    <Label
+                        Grid.Column="1"
+                        x:Name="LblUnite"
+                        Text="g"
+                        VerticalOptions="Center"
+                        FontSize="16"
+                        FontAttributes="Bold"/>
+                </Grid>
+            </VerticalStackLayout>
+
+            <!-- Repas -->
+            <VerticalStackLayout Spacing="7">
+                <Label Text="Type de repas"
+                       FontAttributes="Bold"
+                       FontSize="16"/>
+
+                <Picker
+                    x:Name="RepasPicker"
+                    Title="Choisir un repas"
+                    BackgroundColor="White">
+
+                    <Picker.Items>
+                        <x:String>Petit-déjeuner</x:String>
+                        <x:String>Déjeuner</x:String>
+                        <x:String>Dîner</x:String>
+                        <x:String>Collation</x:String>
+                    </Picker.Items>
+
+                </Picker>
+            </VerticalStackLayout>
+
+            <!-- Résultat nutritionnel -->
+            <Frame
+                BackgroundColor="White"
+                CornerRadius="15"
+                Padding="15"
+                HasShadow="True">
+
+                <VerticalStackLayout Spacing="12">
+
+                    <Label Text="Valeurs nutritionnelles"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="#244B35"/>
+
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Calories"/>
+                        <Label x:Name="LblCalories"
+                               Grid.Column="1"
+                               Text="0 kcal"
+                               FontAttributes="Bold"
+                               TextColor="#244B35"/>
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Protéines"/>
+                        <Label x:Name="LblProteines"
+                               Grid.Column="1"
+                               Text="0 g"
+                               FontAttributes="Bold"
+                               TextColor="#244B35"/>
+                    </Grid>
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Bouton -->
+            <Button
+                Text="Ajouter au journal"
+                BackgroundColor="#2E8B57"
+                TextColor="White"
+                CornerRadius="12"
+                HeightRequest="52"
+                FontAttributes="Bold"
+                Clicked="OnAjouterClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

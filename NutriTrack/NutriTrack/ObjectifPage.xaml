@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="NutriTrack.ObjectifPage"
+    Title="Mes objectifs"
+    BackgroundColor="#F5FBF5"
+    NavigationPage.HasNavigationBar="False">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="22,30" Spacing="20">
+
+            <!-- En-tête -->
+            <Label
+                Text="🌿 NutriTrack"
+                FontSize="25"
+                FontAttributes="Bold"
+                TextColor="#087A43"
+                HorizontalOptions="Center"/>
+
+            <VerticalStackLayout Spacing="5">
+                <Label
+                    Text="Vos vos objectifs nutritionnels personnalisés"
+                    FontSize="27"
+                    FontAttributes="Bold"
+                    TextColor="#075C36"
+                    HorizontalOptions="Center"/>
+
+                
+            </VerticalStackLayout>
+
+            <!-- Objectif choisi -->
+            <Border
+                BackgroundColor="#E5F5E8"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 20"
+                Padding="16">
+
+                <VerticalStackLayout Spacing="5">
+                    <Label
+                        Text="VOTRE OBJECTIF"
+                        FontSize="12"
+                        TextColor="#54745F"/>
+
+                    <Label
+                        x:Name="ObjectifLabel"
+                        Text="Perdre du poids"
+                        FontSize="21"
+                        FontAttributes="Bold"
+                        TextColor="#087A43"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Calories -->
+            <Border
+                BackgroundColor="White"
+                Stroke="#DCEBDD"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 22"
+                Padding="20">
+
+                <VerticalStackLayout Spacing="10">
+                    
+
+                    <Label
+                        Text="Calories recommandées"
+                        FontSize="16"
+                        TextColor="#587064"
+                        HorizontalOptions="Center"/>
+
+                    <Label
+                        x:Name="CaloriesLabel"
+                        Text="0 kcal"
+                        FontSize="32"
+                        FontAttributes="Bold"
+                        TextColor="#087A43"
+                        HorizontalOptions="Center"/>
+
+                    <Label
+                        Text="Par jour"
+                        FontSize="13"
+                        TextColor="#78917E"
+                        HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Protéines -->
+            <Border
+                BackgroundColor="White"
+                Stroke="#DCEBDD"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 22"
+                Padding="20">
+
+                <VerticalStackLayout Spacing="10">
+                   
+
+                    <Label
+                        Text="Protéines recommandées"
+                        FontSize="16"
+                        TextColor="#587064"
+                        HorizontalOptions="Center"/>
+
+                    <Label
+                        x:Name="ProteinesLabel"
+                        Text="0 g"
+                        FontSize="32"
+                        FontAttributes="Bold"
+                        TextColor="#087A43"
+                        HorizontalOptions="Center"/>
+
+                    <Label
+                        Text="Par jour"
+                        FontSize="13"
+                        TextColor="#78917E"
+                        HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Détail du calcul -->
+            <Border
+                BackgroundColor="#EAF4EB"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 18"
+                Padding="15">
+
+                <VerticalStackLayout Spacing="8">
+                    <Label
+                        Text="Détails de votre calcul"
+                        FontSize="16"
+                        FontAttributes="Bold"
+                        TextColor="#075C36"/>
+
+                    <Label
+                        x:Name="MetabolismeLabel"
+                        Text="Métabolisme de base : -- kcal"
+                        FontSize="13"
+                        TextColor="#54745F"/>
+
+                    <Label
+                        x:Name="ActiviteLabel"
+                        Text="Niveau d'activité : --"
+                        FontSize="13"
+                        TextColor="#54745F"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Information scientifique -->
+            <Border
+                BackgroundColor="#EDF3ED"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 16"
+                Padding="14">
+
+                <VerticalStackLayout Spacing="8">
+                    <Label
+                        Text="ⓘ À propos de ces estimations"
+                        FontSize="14"
+                        FontAttributes="Bold"
+                        TextColor="#365E43"/>
+
+                    <Label
+                        Text="Les calculs des besoins caloriques sont basés sur l'équation de Mifflin-St Jeor. Les estimations des besoins en protéines s'appuient sur des repères nutritionnels issus de la littérature scientifique et des recommandations d'organismes tels que l'OMS, l'ANSES et l'ISSN."
+                        FontSize="12"
+                        TextColor="#587064"/>
+
+                    <Label
+                        Text="Ces résultats sont fournis à titre informatif uniquement et ne remplacent pas l'avis d'un professionnel de santé."
+                        FontSize="12"
+                        FontAttributes="Italic"
+                        TextColor="#587064"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Bouton -->
+            <Button
+                Text="Commencer  →"
+                FontSize="17"
+                FontAttributes="Bold"
+                TextColor="White"
+                BackgroundColor="#087A43"
+                CornerRadius="28"
+                HeightRequest="56"
+                Clicked="OnCommencerClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

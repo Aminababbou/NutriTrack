@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="NutriTrack.JournalPage"
+    Title="Journal alimentaire"
+    BackgroundColor="#F5F8F5">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="18">
+
+            <Label
+                Text="Mon journal alimentaire"
+                FontSize="26"
+                FontAttributes="Bold"
+                TextColor="#244D37"/>
+
+            <Label
+                Text="Suivez votre alimentation quotidienne."
+                FontSize="14"
+                TextColor="Gray"/>
+
+            <!-- Date -->
+            <Border
+                BackgroundColor="White"
+                Stroke="#E1EAE2"
+                StrokeShape="RoundRectangle 12"
+                Padding="12">
+
+                <VerticalStackLayout Spacing="8">
+                    <Label
+                        Text="Date de consultation"
+                        FontAttributes="Bold"
+                        TextColor="#244D37"/>
+
+                    <DatePicker
+                        x:Name="DateJournalPicker"
+                        Format="dd/MM/yyyy"
+                        DateSelected="OnDateSelected"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Consommations -->
+            <Label
+                Text="Mes consommations"
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="#244D37"/>
+
+            <Label
+                x:Name="LblAucunAliment"
+                Text="Aucun aliment enregistré pour cette date."
+                TextColor="Gray"
+                HorizontalTextAlignment="Center"
+                IsVisible="False"/>
+
+            <CollectionView
+                x:Name="JournalCollection"
+                SelectionMode="None">
+
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout
+                        Orientation="Vertical"
+                        ItemSpacing="10"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border
+                            BackgroundColor="White"
+                            Stroke="#E1EAE2"
+                            StrokeShape="RoundRectangle 12"
+                            Padding="12">
+
+                            <Grid
+                                ColumnDefinitions="*,Auto"
+                                RowDefinitions="Auto,Auto,Auto,Auto"
+                                ColumnSpacing="10"
+                                RowSpacing="5">
+
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Text="{Binding Repas}"
+                                    FontSize="12"
+                                    TextColor="#398653"
+                                    FontAttributes="Bold"/>
+
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    Text="{Binding NomAliment}"
+                                    FontSize="17"
+                                    TextColor="#244D37"
+                                    FontAttributes="Bold"/>
+
+                                <Label
+                                    Grid.Row="2"
+                                    Grid.Column="0"
+                                    Text="{Binding QuantiteTexte}"
+                                    FontSize="13"
+                                    TextColor="Gray"/>
+
+                                <Label
+                                    Grid.Row="3"
+                                    Grid.Column="0"
+                                    Text="{Binding DetailsNutrition}"
+                                    FontSize="13"
+                                    TextColor="#398653"/>
+                                
+                                <Button
+                                    Grid.Row="0"
+                                    Grid.RowSpan="4"
+                                    Grid.Column="1"
+                                    Text="Supprimer"
+                                    BackgroundColor="#FCE8E8"
+                                    TextColor="#B3261E"
+                                    FontSize="11"
+                                    Padding="8"
+                                    VerticalOptions="Center"
+                                    Clicked="OnSupprimerClicked"/>
+
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Bilan nutritionnel -->
+            <Label
+                Text="Bilan nutritionnel du jour"
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="#244D37"/>
+
+            <Border
+                BackgroundColor="White"
+                Stroke="#E1EAE2"
+                StrokeShape="RoundRectangle 15"
+                Padding="16">
+
+                <VerticalStackLayout Spacing="12">
+
+                    <Label
+                        Text="Calories consommées"
+                        FontAttributes="Bold"
+                        TextColor="#244D37"/>
+
+                    <Label
+                        x:Name="LblCalories"
+                        Text="0 kcal"
+                        FontSize="24"
+                        FontAttributes="Bold"
+                        TextColor="#398653"/>
+
+                    <Label
+                        x:Name="LblObjectifCalories"
+                        Text="Objectif : -- kcal"
+                        FontSize="13"
+                        TextColor="Gray"/>
+
+                    <ProgressBar
+                        x:Name="ProgressCalories"
+                        Progress="0"
+                        ProgressColor="#398653"/>
+
+                    <Label
+                        x:Name="LblCaloriesRestantes"
+                        Text="Restant : -- kcal"
+                        FontSize="13"
+                        TextColor="Gray"/>
+
+                    <BoxView
+                        HeightRequest="1"
+                        Color="#E1EAE2"/>
+
+                    <Label
+                        Text="Protéines consommées"
+                        FontAttributes="Bold"
+                        TextColor="#244D37"/>
+
+                    <Label
+                        x:Name="LblProteines"
+                        Text="0 g"
+                        FontSize="24"
+                        FontAttributes="Bold"
+                        TextColor="#398653"/>
+
+                    <Label
+                        x:Name="LblObjectifProteines"
+                        Text="Objectif : -- g"
+                        FontSize="13"
+                        TextColor="Gray"/>
+
+                    <ProgressBar
+                        x:Name="ProgressProteines"
+                        Progress="0"
+                        ProgressColor="#398653"/>
+
+                    <Label
+                        x:Name="LblProteinesRestantes"
+                        Text="Restant : -- g"
+                        FontSize="13"
+                        TextColor="Gray"/>
+
+                </VerticalStackLayout>
+            </Border>
+            <Button
+    Grid.Row="0"
+    Grid.RowSpan="4"
+    Grid.Column="1"
+    Text="Demander un suggestion de l'IA"
+    BackgroundColor="#FCE8E8"
+    TextColor="#B3261E"
+    FontSize="11"
+    Padding="8"
+    VerticalOptions="Center"
+    Clicked="OnSuggestionClicked"/>
+            <Label
+    x:Name="SuggestionLabel"
+    Grid.Row="4"
+    Grid.Column="0"
+    Grid.ColumnSpan="2"
+    Text="La suggestion de l'IA apparaîtra ici"
+    TextColor="Black"
+    FontSize="14"
+    Padding="10"
+    IsVisible="False"/>
+
+            <Button
+                Text="Ajouter un aliment"
+                BackgroundColor="#2E8B57"
+                TextColor="White"
+                CornerRadius="12"
+                HeightRequest="50"
+                Clicked="OnAjouterAlimentClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

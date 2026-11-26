@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="NutriTrack.MainPage"
+    NavigationPage.HasNavigationBar="False"
+    BackgroundColor="White">
+
+    <Grid Padding="25">
+
+        <VerticalStackLayout
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Spacing="15">
+
+            <Label
+                Text="🌿"
+                FontSize="75"
+                HorizontalOptions="Center"/>
+
+            <Label
+                Text="NutriTrack"
+                FontSize="36"
+                FontAttributes="Bold"
+                TextColor="#087A43"
+                HorizontalOptions="Center"/>
+
+            <Label
+                Text="Votre allié pour une vie plus saine"
+                FontSize="15"
+                TextColor="#718477"
+                HorizontalOptions="Center"/>
+
+            <Button
+                Text="Commencer  →"
+                FontSize="17"
+                FontAttributes="Bold"
+                TextColor="White"
+                BackgroundColor="#087A43"
+                CornerRadius="25"
+                HeightRequest="55"
+                WidthRequest="240"
+                Margin="0,25,0,0"
+                Clicked="OnCommencerClicked"/>
+
+        </VerticalStackLayout>
+
+    </Grid>
+
+</ContentPage>
+

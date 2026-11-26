@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="NutriTrack.AcceuilPage"
+    Title="Accueil"
+    BackgroundColor="#F5F8F5">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- Bienvenue -->
+            <VerticalStackLayout Spacing="5">
+                <Label
+                    x:Name="LblBienvenue"
+                    Text="Bienvenue ! "
+                    FontSize="27"
+                    FontAttributes="Bold"
+                    TextColor="#174D35"/>
+
+                <Label
+                    Text="Prêt à prendre soin de vous aujourd'hui ?"
+                    FontSize="14"
+                    TextColor="#718477"/>
+            </VerticalStackLayout>
+
+            <!-- Motivation -->
+            <Border
+                BackgroundColor="#087A43"
+                StrokeThickness="0"
+                Padding="20"
+                StrokeShape="RoundRectangle 18">
+
+                <VerticalStackLayout Spacing="10">
+                    <Label
+                        
+                        Text="{Binding Objectif}"
+                        FontSize="19"
+                        FontAttributes="Bold"
+                        TextColor="White"/>
+
+                    <Label
+                        Text="{Binding Motivation}" 
+                        FontSize="14"
+                        TextColor="White"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Résumé quotidien -->
+            <Label
+                Text="Mon résumé quotidien"
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="#174D35"/>
+
+            <Grid ColumnDefinitions="*,*"
+                  ColumnSpacing="12">
+
+                <Border
+                    Grid.Column="0"
+                    BackgroundColor="White"
+                    Stroke="#E3EBE4"
+                    Padding="15"
+                    StrokeShape="RoundRectangle 15">
+
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="🔥 Calories"
+                               FontSize="14"
+                               TextColor="#718477"/>
+
+                        <Label
+                            Text="{Binding Calories}"                            
+                            FontSize="23"
+                            FontAttributes="Bold"
+                            TextColor="#087A43"
+                            />
+
+                        <Label
+                            Text="Consommées"
+                            FontSize="12"
+                            TextColor="#718477"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border
+                    Grid.Column="1"
+                    BackgroundColor="White"
+                    Stroke="#E3EBE4"
+                    Padding="15"
+                    StrokeShape="RoundRectangle 15">
+
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="💪 Protéines"
+                               FontSize="14"
+                               TextColor="#718477"/>
+
+                        <Label
+                            Text="{Binding Proteines}"
+                            FontSize="23"
+                            FontAttributes="Bold"
+                            TextColor="#087A43"
+                            />
+
+                        <Label
+                            Text="Consommées"
+                            FontSize="12"
+                            TextColor="#718477"/>
+                    </VerticalStackLayout>
+                </Border>
+
+            </Grid>
+
+            <Button
+                Text="📖  Journal alimentaire"
+                BackgroundColor="#087A43"
+                TextColor="White"
+                CornerRadius="12"
+                HeightRequest="55"
+                Clicked="OnJournalClicked"/>
+
+            <Button
+                Text="🥗  Consulter les aliments"
+                BackgroundColor="White"
+                TextColor="#087A43"
+                BorderColor="#087A43"
+                BorderWidth="1"
+                CornerRadius="12"
+                HeightRequest="55"
+                Clicked="OnAlimentsClicked"/>
+
+            <Button
+                Text="⚙️  Redéfinir mon profil"
+                BackgroundColor="#E7F1E9"
+                TextColor="#174D35"
+                CornerRadius="12"
+                HeightRequest="55"
+                Clicked="OnProfilClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

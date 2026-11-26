@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NutriTrack.ProfilPage"
+             Title="Mon profil et mon objectif">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="6">
+
+            <Label Text="Sexe" />
+            <Picker x:Name="SexePicker" Title="Choisir" SelectedIndexChanged="OnChoixChange">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Homme</x:String>
+                        <x:String>Femme</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Label Text="Âge (18 à 100 ans)" Margin="0,10,0,0" />
+            <Entry x:Name="AgeEntry" Keyboard="Numeric" MaxLength="3" Placeholder="ex. 25" TextChanged="OnTexteChange" />
+            <Label x:Name="AgeErreur" TextColor="Red" FontSize="12" IsVisible="False" />
+
+            <Label Text="Taille (120 à 230 cm)" Margin="0,10,0,0" />
+            <Entry x:Name="TailleEntry" Keyboard="Numeric" MaxLength="3" Placeholder="ex. 170" TextChanged="OnTexteChange" />
+            <Label x:Name="TailleErreur" TextColor="Red" FontSize="12" IsVisible="False" />
+
+            <Label Text="Poids actuel (30 à 300 kg)" Margin="0,10,0,0" />
+            <Entry x:Name="PoidsEntry" Keyboard="Numeric" MaxLength="5" Placeholder="ex. 72,5" TextChanged="OnTexteChange" />
+            <Label x:Name="PoidsErreur" TextColor="Red" FontSize="12" IsVisible="False" />
+
+            <Label Text="Niveau d'activité" Margin="0,10,0,0" />
+            <Picker x:Name="ActivitePicker" Title="Choisir" SelectedIndexChanged="OnChoixChange">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Sédentaire (peu ou pas d'exercice)</x:String>
+                        <x:String>Légèrement actif (1 à 3 séances par semaine)</x:String>
+                        <x:String>Actif (3 à 5 séances par semaine)</x:String>
+                        <x:String>Très actif (6 à 7 séances par semaine)</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Label Text="Objectif" Margin="0,10,0,0" />
+            <Picker x:Name="ObjectifPicker" Title="Choisir" SelectedIndexChanged="OnObjectifChange">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Garder mon poids</x:String>
+                        <x:String>Perdre du poids</x:String>
+                        <x:String>Prendre du poids</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <!-- Visible seulement si l'objectif est Perdre ou Prendre -->
+            <VerticalStackLayout x:Name="PoidsViseLayout" IsVisible="False" Spacing="6">
+                <Label x:Name="PoidsViseLabel" Margin="0,10,0,0" />
+                <Entry x:Name="PoidsViseEntry" Keyboard="Numeric" MaxLength="5" Placeholder="ex. 68,0" TextChanged="OnTexteChange" />
+                <Label x:Name="PoidsViseErreur" TextColor="Red" FontSize="12" IsVisible="False" />
+            </VerticalStackLayout>
+
+            <Button x:Name="ValiderButton" Text="Valider" Margin="0,20,0,0" IsEnabled="False" Clicked="OnValiderClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
